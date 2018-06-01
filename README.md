@@ -1,5 +1,5 @@
-# FSG Website
-Basic WordPress site running with mysql 5.6 on Docker.
+# Docker WordPress Boilerplate
+Basic WordPress site running with mysql 5.6 on Docker. Comes with a theme that uses SCSS, minifies images, and bundles JSON.
 
 ## Get started
 * Install docker
@@ -28,7 +28,6 @@ Note: If you have issues, make sure the script is executable via `chmod +x ./scr
 If creating a non-code based change to the site *e.g. creating a new page via the WordPress GUI*:
 * Create a new **DB Dump** via the command below.
 * Add `./database/` to a fresh commit
-* If you made changes to the theme options, export them from `/wp-admin/themes.php?page=plumbing_options` and save as `theme_options.json`
 
 ### Create a DB dump
 `./scripts/backup.sh`
@@ -38,7 +37,6 @@ Note: If you have issues, make sure the script is executable via `chmod +x ./scr
 ## Deploying to Server
 * Generate minified css and js using `./scripts/generate-production-assets.sh`
 * Create a mysql dump `./scripts/mysqldump.sh`
-* Find and replace all `http://localhost:8080` with actual URL
 * Use ftp to move all files from `/wp-content` to Server
 * Drop all existing tables in Server phpMyAdmin
 * Import mysqldump from `./database/databases.sql` using Server phpMyAdmin
