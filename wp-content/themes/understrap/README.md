@@ -1,4 +1,4 @@
-Travis build: [![Build Status](https://travis-ci.org/holger1411/understrap.svg?branch=master)](https://travis-ci.org/holger1411/understrap) | Start talking: [![Gitter](https://img.shields.io/gitter/room/holger1411/understrap.svg?maxAge=2592000?style=flat-square)](https://gitter.im/holger1411/understrap)
+Travis build: [![Build Status](https://travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
 
 #### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
 
@@ -15,7 +15,8 @@ That’s what UnderStrap is.
 You can use it as starter theme and build your own theme on top of it. Or you use it as parent theme and create your own child theme for UnderStrap.
 
 ## License
-UnderStrap is released under the terms of the GPL version 2 or (at your option) any later version.
+UnderStrap WordPress Theme, Copyright 2013-2017 Holger Koenemann
+UnderStrap is distributed under the terms of the GNU GPL version 2
 
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -94,11 +95,14 @@ To work and compile your Sass files on the fly start:
 
 Or, to run with Browser-Sync:
 
-- First change the browser-sync options to reflect your environment in the file `/gulpfile.js` in the beginning of the file:
+- First change the browser-sync options to reflect your environment in the file `/gulpconfig.json` in the beginning of the file:
 ```javascript
-var browserSyncOptions = {
-    proxy: "localhost/theme_test/", // <----- CHANGE HERE
-    notify: false
+{
+    "browserSyncOptions" : {
+        "proxy": "localhost/theme_test/", // <----- CHANGE HERE
+        "notify": false
+    },
+    ...
 };
 ```
 - then run: `$ gulp watch-bs`

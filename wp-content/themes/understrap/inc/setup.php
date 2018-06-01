@@ -5,7 +5,6 @@
  * @package understrap
  */
 
-require get_template_directory() . '/inc/theme-settings.php';
 
 // Set the content width based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) ) {
@@ -85,16 +84,17 @@ if ( ! function_exists( 'understrap_setup' ) ) :
 			'default-image' => '',
 		) ) );
 
-		// Set up the Wordpress Theme logo feature.
+		// Set up the WordPress Theme logo feature.
 		add_theme_support( 'custom-logo' );
 
 		// Check and setup theme default settings.
-		setup_theme_default_settings();
+		understrap_setup_theme_default_settings();
+
 	}
 endif; // understrap_setup.
 add_action( 'after_setup_theme', 'understrap_setup' );
 
-if ( ! function_exists( 'custom_excerpt_more' ) ) {
+if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	/**
 	 * Removes the ... from the excerpt read more link
 	 *
@@ -102,13 +102,13 @@ if ( ! function_exists( 'custom_excerpt_more' ) ) {
 	 *
 	 * @return string
 	 */
-	function custom_excerpt_more( $more ) {
+	function understrap_custom_excerpt_more( $more ) {
 		return '';
 	}
 }
-add_filter( 'excerpt_more', 'custom_excerpt_more' );
+add_filter( 'excerpt_more', 'understrap_custom_excerpt_more' );
 
-if ( ! function_exists( 'all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	/**
 	 * Adds a custom read more link to all excerpts, manually or automatically generated
 	 *
@@ -116,10 +116,10 @@ if ( ! function_exists( 'all_excerpts_get_more_link' ) ) {
 	 *
 	 * @return string
 	 */
-	function all_excerpts_get_more_link( $post_excerpt ) {
+	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 
-		return $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Read More...',
+		return $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() )) . '">' . __( 'Read More...',
 		'understrap' ) . '</a></p>';
 	}
 }
-add_filter( 'wp_trim_excerpt', 'all_excerpts_get_more_link' );
+add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
