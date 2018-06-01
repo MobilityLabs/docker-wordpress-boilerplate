@@ -1,2 +1,7 @@
 databases.sql
+
+# Ignore library and built files in the theme
 node_modules
+wp-content/themes/understrap/src/
+wp-content/themes/understrap/css/
+wp-content/themes/understrap/js/
