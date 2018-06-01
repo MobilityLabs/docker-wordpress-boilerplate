@@ -3,7 +3,7 @@
 # load env variables
 source .env
 
-sudo docker exec $MYSQL_CONTAINER_NAME sh -c 'exec mydumper \
+docker exec $MYSQL_CONTAINER_NAME sh -c 'exec mydumper \
 --database=$MYSQL_DATABASE \
 --host=localhost \
 --user=root \

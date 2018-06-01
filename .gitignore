@@ -1,1 +1,2 @@
-.env
+databases.sql
+node_modules
